@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopModern - E-commerce Premium</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <span><i class="fas fa-truck"></i> Livraison gratuite dès 50€</span>
+                <div class="top-bar-right">
+                    <a href="#"><i class="fas fa-phone"></i> 01 23 45 67 89</a>
+                    <a href="#"><i class="fas fa-envelope"></i> contact@shopmodern.fr</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                ShopModern
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher un produit...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="nav-btn">
+                    <i class="fas fa-user"></i>
+                    <span>Compte</span>
+                </button>
+                <button class="nav-btn">
+                    <i class="fas fa-heart"></i>
+                    <span>Favoris</span>
+                    <span class="badge">3</span>
+                </button>
+                <button class="nav-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Panier</span>
+                    <span class="badge">2</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Categories Menu -->
+    <div class="categories-bar">
+        <div class="container">
+            <nav class="categories-nav">
+                <a href="#" class="category-link active">Nouveautés</a>
+                <a href="#" class="category-link">Hommes</a>
+                <a href="#" class="category-link">Femmes</a>
+                <a href="#" class="category-link">Enfants</a>
+                <a href="#" class="category-link">Accessoires</a>
+                <a href="#" class="category-link sale">Soldes <span class="sale-badge">-50%</span></a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="banner-content">
+                <span class="banner-badge">Nouvelle Collection</span>
+                <h1>Printemps/Été 2025</h1>
+                <p>Découvrez les dernières tendances de la saison</p>
+                <button class="btn-primary">Découvrir</button>
+            </div>
+            <div class="banner-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Livraison Rapide</h3>
+                    <p>Sous 48h partout en France</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <h3>Retours Gratuits</h3>
+                    <p>30 jours pour changer d'avis</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>Paiement Sécurisé</h3>
+                    <p>Transactions 100% sécurisées</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support 24/7</h3>
+                    <p>Service client à votre écoute</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Produits Populaires</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active">Tous</button>
+                    <button class="filter-btn">Hommes</button>
+                    <button class="filter-btn">Femmes</button>
+                    <button class="filter-btn">Accessoires</button>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge sale">-30%</div>
+                    <button class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <div class="product-image">
+                        <div class="image-placeholder blue">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <button class="quick-view">Vue rapide</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">T-shirts</span>
+                        <h3>T-shirt Premium Cotton</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(48)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">34,99€</span>
+                            <span class="old-price">49,99€</span>
+                        </div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge new">Nouveau</div>
+                    <button class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <div class="product-image">
+                        <div class="image-placeholder purple">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <button class="quick-view">Vue rapide</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Chaussures</span>
+                        <h3>Sneakers Urban Style</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(92)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">79,99€</span>
+                        </div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <button class="wishlist-btn active">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="product-image">
+                        <div class="image-placeholder green">
+                            <i class="fas fa-hat-cowboy"></i>
+                        </div>
+                        <button class="quick-view">Vue rapide</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessoires</span>
+                        <h3>Casquette Baseball</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(35)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">24,99€</span>
+                        </div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-badge sale">-20%</div>
+                    <button class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <div class="product-image">
+                        <div class="image-placeholder orange">
+                            <i class="fas fa-glasses"></i>
+                        </div>
+                        <button class="quick-view">Vue rapide</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessoires</span>
+                        <h3>Lunettes de Soleil</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(67)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">39,99€</span>
+                            <span class="old-price">49,99€</span>
+                        </div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Restez Informé</h2>
+                    <p>Inscrivez-vous à notre newsletter et recevez -10% sur votre première commande</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-shopping-bag"></i>
+                        ShopModern
+                    </div>
+                    <p>Votre destination mode en ligne pour des produits de qualité et tendance.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Boutique</h4>
+                    <a href="#">Hommes</a>
+                    <a href="#">Femmes</a>
+                    <a href="#">Enfants</a>
+                    <a href="#">Accessoires</a>
+                    <a href="#">Soldes</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Aide</h4>
+                    <a href="#">Service client</a>
+                    <a href="#">Suivi de commande</a>
+                    <a href="#">Retours</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Guide des tailles</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>À propos</h4>
+                    <a href="#">Notre histoire</a>
+                    <a href="#">Carrières</a>
+                    <a href="#">Presse</a>
+                    <a href="#">Conditions générales</a>
+                    <a href="#">Confidentialité</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShopModern. Tous droits réservés. | Créé par Anthony Nagul</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amex"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

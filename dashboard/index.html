@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Tableau de bord</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-chart-pie"></i>
+            <span>Analytics</span>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Statistiques</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>Utilisateurs</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Ventes</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Paramètres</span>
+            </a>
+        </nav>
+        
+        <div class="user-profile">
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="user-info">
+                <strong>Anthony Nagul</strong>
+                <span>Admin</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1>Tableau de bord</h1>
+                <p>Bienvenue sur votre dashboard analytics</p>
+            </div>
+            <div class="header-right">
+                <div class="date-picker">
+                    <i class="fas fa-calendar"></i>
+                    <select id="dateRange">
+                        <option>7 derniers jours</option>
+                        <option>30 derniers jours</option>
+                        <option>3 derniers mois</option>
+                        <option>Cette année</option>
+                    </select>
+                </div>
+                <button class="btn-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-label">Visiteurs totaux</span>
+                    <h3 class="stat-value" data-target="12453">0</h3>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+12.5%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-label">Ventes</span>
+                    <h3 class="stat-value" data-target="8942">0</h3>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+8.2%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-label">Revenu</span>
+                    <h3 class="stat-value" data-target="45892">0</h3>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+15.3%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-label">Taux de conversion</span>
+                    <h3 class="stat-value">3.24%</h3>
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>-2.1%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+            
+            <!-- Main Chart -->
+            <div class="chart-card large">
+                <div class="card-header">
+                    <h3>Vue d'ensemble des ventes</h3>
+                    <div class="chart-legend">
+                        <span class="legend-item">
+                            <span class="legend-color blue"></span>
+                            Ventes
+                        </span>
+                        <span class="legend-item">
+                            <span class="legend-color purple"></span>
+                            Revenus
+                        </span>
+                    </div>
+                </div>
+                <canvas id="salesChart"></canvas>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="chart-card">
+                <div class="card-header">
+                    <h3>Sources de trafic</h3>
+                </div>
+                <canvas id="trafficChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Activity and Top Products -->
+        <div class="bottom-grid">
+            
+            <!-- Recent Activity -->
+            <div class="activity-card">
+                <div class="card-header">
+                    <h3>Activité récente</h3>
+                    <button class="btn-text">Voir tout</button>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon blue">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Nouvel utilisateur</strong> s'est inscrit</p>
+                            <span class="activity-time">Il y a 5 minutes</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon green">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Nouvelle commande</strong> #1234</p>
+                            <span class="activity-time">Il y a 15 minutes</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon purple">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Nouvel avis</strong> sur le produit #456</p>
+                            <span class="activity-time">Il y a 1 heure</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon orange">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Stock faible</strong> sur 3 produits</p>
+                            <span class="activity-time">Il y a 2 heures</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Products -->
+            <div class="products-card">
+                <div class="card-header">
+                    <h3>Top produits</h3>
+                    <button class="btn-text">Voir tout</button>
+                </div>
+                <div class="products-list">
+                    <div class="product-item">
+                        <div class="product-info">
+                            <div class="product-icon blue">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <div>
+                                <strong>MacBook Pro</strong>
+                                <span>Électronique</span>
+                            </div>
+                        </div>
+                        <div class="product-stats">
+                            <span class="product-sales">234 ventes</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-info">
+                            <div class="product-icon green">
+                                <i class="fas fa-headphones"></i>
+                            </div>
+                            <div>
+                                <strong>AirPods Pro</strong>
+                                <span>Audio</span>
+                            </div>
+                        </div>
+                        <div class="product-stats">
+                            <span class="product-sales">189 ventes</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-info">
+                            <div class="product-icon purple">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div>
+                                <strong>iPhone 15</strong>
+                                <span>Smartphones</span>
+                            </div>
+                        </div>
+                        <div class="product-stats">
+                            <span class="product-sales">156 ventes</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 58%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-info">
+                            <div class="product-icon orange">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <strong>PlayStation 5</strong>
+                                <span>Gaming</span>
+                            </div>
+                        </div>
+                        <div class="product-stats">
+                            <span class="product-sales">98 ventes</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
