@@ -230,7 +230,7 @@ function animateStats() {
 window.addEventListener('scroll', animateStats);
 
 // ===================================
-// FORM HANDLING
+// FORM HANDLING - VERSION CORRIGÉE
 // ===================================
 
 const contactForm = document.getElementById('contactForm');
@@ -278,11 +278,16 @@ if (contactForm) {
             from_name: name,
             from_email: email,
             subject: subject,
-            message: message
+            message: message,
+            to_name: "Anthony" // Ton nom
         };
         
-        // Envoi avec EmailJS - REMPLACEZ LES VALEURS ICI
-        emailjs.send('service_in5jyls', 'template_c5j34ld', templateParams)
+        // ⚠️ REMPLACE CES VALEURS PAR LES TIENNES ⚠️
+        emailjs.send(
+            'service_in5jyls',      // ← Remplace par ton Service ID
+            'template_c5j34ld',     // ← Remplace par ton Template ID
+            templateParams
+        )
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 showNotification('✓ Message envoyé avec succès !', 'success');
