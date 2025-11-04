@@ -229,6 +229,33 @@ a {
 /* ===================================
    HERO SECTION
    =================================== */
+   /* Hero Image */
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.hero-profile-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4);
+    border: 3px solid var(--color-primary);
+}
+
+.hero-shape-bg {
+    position: absolute;
+    inset: -20px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: var(--radius-lg);
+    opacity: 0.2;
+    z-index: 1;
+    animation: pulse 3s infinite;
+}
 
 .hero {
     min-height: 100vh;
@@ -298,17 +325,97 @@ a {
     flex-wrap: wrap;
 }
 
+/* ===================================
+   HERO SECTION - VISUAL
+   =================================== */
+
 .hero-visual {
     position: relative;
 }
 
+.hero-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Magic Card pour la photo */
+.magic-card {
+    --background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    width: 220px;
+    height: 220px;
+    padding: 5px;
+    border-radius: 50%;
+    overflow: visible;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.magic-card::after {
+    position: absolute;
+    content: "";
+    top: 20px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.9);
+    filter: blur(30px);
+    background: var(--background);
+    transition: opacity 0.5s;
+    opacity: 0.8;
+}
+
+.magic-card:hover {
+    transform: scale(1.05);
+}
+
+.magic-card:hover::after {
+    opacity: 0;
+    transform: scale(1);
+}
+
+.magic-card-inner {
+    background: var(--color-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+.magic-card:hover .magic-card-inner {
+    background: var(--color-bg-secondary);
+}
+
+.hero-profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.magic-card:hover .hero-profile-photo {
+    transform: scale(1.1);
+}
+
+/* Code Snippet */
 .hero-shape {
     background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-tertiary));
     border-radius: var(--radius-lg);
-    padding: 3rem;
+    padding: 2rem;
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-lg);
     position: relative;
+    width: 100%;
+    max-width: 400px;
 }
 
 .hero-shape::before {
@@ -439,23 +546,8 @@ section {
     align-items: center;
 }
 
-.about-image-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.about-shape {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--color-bg-tertiary), var(--color-primary));
-    border-radius: var(--radius-lg);
-    opacity: 0.2;
-    animation: pulse 3s infinite;
-}
+
 
 @keyframes pulse {
     0%, 100% {
@@ -466,12 +558,6 @@ section {
     }
 }
 
-.about-icon {
-    font-size: 8rem;
-    color: var(--color-primary);
-    position: relative;
-    z-index: 1;
-}
 
 .about-text h3 {
     font-family: var(--font-heading);
@@ -882,6 +968,283 @@ section {
 .form-group textarea {
     resize: vertical;
     min-height: 150px;
+}
+
+/* ===================================
+   ABOUT SECTION - 3D CARD
+   =================================== */
+
+.parent-3d {
+    width: 100%;
+    max-width: 1200px; /* Augmenté de 400px à 550px */
+    padding: 20px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.card-3d {
+    padding-top: 100px; /* Augmenté de 50px à 60px */
+    border: 3px solid var(--color-bg-secondary);
+    transform-style: preserve-3d;
+    background: linear-gradient(135deg, #0000 18.75%, var(--color-border) 0 31.25%, #0000 0),
+        repeating-linear-gradient(45deg, var(--color-border) -6.25% 6.25%, var(--color-bg-secondary) 0 18.75%);
+    background-size: 60px 60px;
+    background-position: 0 0, 0 0;
+    background-color: var(--color-bg-secondary);
+    width: 100%;
+    box-shadow: rgba(59, 130, 246, 0.3) 0px 30px 30px -10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.card-3d:hover {
+    background-position: -100px 100px, -100px 100px;
+    transform: rotate3d(0.5, 1, 0, 30deg);
+}
+/* Photo de profil dans la carte 3D */
+.profile-image-container {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: all 0.5s ease-in-out;
+}
+
+.profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-primary);
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.5);
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 100px);
+}
+
+.card-3d:hover .profile-image {
+    transform: translate3d(0px, 0px, 120px) scale(1.05);
+    box-shadow: 0 15px 50px rgba(59, 130, 246, 0.6);
+}
+
+.card-3d:hover .profile-image-container {
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.content-box {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    transition: all 0.5s ease-in-out;
+    padding: 70px 35px 35px 35px; /* Augmenté padding de tous les côtés */
+    transform-style: preserve-3d;
+    min-height: 280px; /* Hauteur minimale pour plus d'espace */
+}
+
+.content-box .card-title {
+    display: inline-block;
+    color: white;
+    font-size: 32px; /* Augmenté de 25px à 32px */
+    font-weight: 900;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 50px);
+    margin-bottom: 1rem;
+}
+
+.content-box .card-title:hover {
+    transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .card-content {
+    margin-top: 15px; /* Augmenté de 10px à 15px */
+    font-size: 16px; /* Augmenté de 14px à 16px */
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 30px);
+    line-height: 1.7; /* Meilleure hauteur de ligne */
+}
+
+.content-box .card-content:hover {
+    transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .see-more {
+    cursor: pointer;
+    margin-top: 2rem; /* Augmenté de 1.5rem à 2rem */
+    display: inline-block;
+    font-weight: 700;
+    font-size: 13px; /* Augmenté de 11px à 13px */
+    text-transform: uppercase;
+    color: var(--color-primary);
+    background: white;
+    padding: 0.8rem 1.5rem; /* Augmenté padding */
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 20px);
+    letter-spacing: 0.5px;
+}
+
+.content-box .see-more:hover {
+    transform: translate3d(0px, 0px, 60px);
+    background: var(--color-bg);
+    color: white;
+}
+
+.date-box {
+    position: absolute;
+    top: 35px; /* Ajusté */
+    right: 35px; /* Ajusté */
+    height: 80px; /* Augmenté de 70px à 80px */
+    width: 80px; /* Augmenté de 70px à 80px */
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-primary);
+    border-radius: 15px; /* Augmenté */
+    padding: 15px; /* Augmenté */
+    transform: translate3d(0px, 0px, 80px);
+    box-shadow: rgba(59, 130, 246, 0.4) 0px 17px 20px -10px;
+}
+
+.date-box span {
+    display: block;
+    text-align: center;
+}
+
+.date-box .month {
+    color: var(--color-accent);
+    font-size: 11px; /* Augmenté de 10px à 11px */
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.date-box .date {
+    font-size: 25px; /* Augmenté de 28px à 32px */
+    font-weight: 900;
+    color: var(--color-primary);
+}
+
+/* Responsive pour la carte 3D */
+@media (max-width: 968px) {
+    .parent-3d {
+        max-width: 100%;
+        padding: 15px;
+    }
+    
+    .card-3d {
+        padding-top: 50px;
+    }
+    
+    .content-box {
+        padding: 50px 25px 25px 25px;
+        min-height: 240px;
+    }
+    
+    .content-box .card-title {
+        font-size: 26px;
+    }
+    
+    .content-box .card-content {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .parent-3d {
+        padding: 10px;
+    }
+    
+    .card-3d {
+        padding-top: 40px;
+    }
+    
+    .content-box {
+        padding: 40px 20px 20px 20px;
+        min-height: 220px;
+    }
+    
+    .content-box .card-title {
+        font-size: 22px;
+    }
+    
+    .content-box .card-content {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .content-box .see-more {
+        font-size: 11px;
+        padding: 0.7rem 1.2rem;
+    }
+    
+    .date-box {
+        height: 70px;
+        width: 70px;
+        top: 25px;
+        right: 25px;
+        padding: 12px;
+    }
+    
+    .date-box .month {
+        font-size: 10px;
+    }
+    
+    .date-box .date {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-box .card-title {
+        font-size: 20px;
+    }
+    
+    .content-box .card-content {
+        font-size: 13px;
+    }
+    
+    .date-box {
+        height: 60px;
+        width: 60px;
+        top: 20px;
+        right: 20px;
+    }
+    
+    .date-box .date {
+        font-size: 24px;
+    }
+}
+
+/* Responsive pour la carte 3D */
+@media (max-width: 768px) {
+    .parent-3d {
+        max-width: 100%;
+        padding: 10px;
+    }
+    
+    .card-3d {
+        padding-top: 40px;
+    }
+    
+    .content-box {
+        padding: 40px 20px 20px 20px;
+    }
+    
+    .content-box .card-title {
+        font-size: 20px;
+    }
+    
+    .content-box .card-content {
+        font-size: 13px;
+    }
+    
+    .date-box {
+        height: 60px;
+        width: 60px;
+        top: 20px;
+        right: 20px;
+    }
+    
+    .date-box .date {
+        font-size: 24px;
+    }
 }
 
 /* ===================================
@@ -1354,5 +1717,94 @@ section {
     
     .content .text {
         font-size: 13px;
+    }
+}
+@media (max-width: 968px) {
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .profile-image-container {
+        top: -50px;
+    }
+    
+    .card-3d {
+        padding-top: 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        border-width: 4px;
+    }
+    
+    .profile-image-container {
+        top: -40px;
+    }
+    
+    .card-3d {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 968px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-layout {
+        gap: 1.5rem;
+    }
+    
+    .magic-card {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .hero-shape {
+        padding: 1.5rem;
+        max-width: 350px;
+    }
+    
+    .code-snippet {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .magic-card {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .hero-shape {
+        padding: 1.2rem;
+        max-width: 100%;
+    }
+    
+    .code-snippet {
+        font-size: 0.85rem;
+    }
+    
+    .code-line {
+        padding-left: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .magic-card {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .hero-shape {
+        padding: 1rem;
+    }
+    
+    .code-snippet {
+        font-size: 0.8rem;
     }
 }
