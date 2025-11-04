@@ -235,47 +235,69 @@ window.addEventListener('scroll', animateStats);
 
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Récupérer les valeurs du formulaire
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Validation simple
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-        showNotification('Veuillez remplir tous les champs', 'error');
-        return;
-    }
-    
-    // Validation email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-        showNotification('Veuillez entrer une adresse email valide', 'error');
-        return;
-    }
-    
-    // Simuler l'envoi du formulaire
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.innerHTML;
-    submitButton.innerHTML = '<span>Envoi en cours...</span><i class="fas fa-spinner fa-spin"></i>';
-    submitButton.disabled = true;
-    
-    // Simuler un délai d'envoi
-    setTimeout(() => {
-        showNotification('Message envoyé avec succès !', 'success');
-        contactForm.reset();
-        submitButton.innerHTML = originalButtonText;
-        submitButton.disabled = false;
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
         
-        // En production, vous remplaceriez ceci par un vrai appel API
-        console.log('Données du formulaire:', formData);
-    }, 2000);
-});
+        // Récupérer les valeurs
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Validation simple
+        if (!name || !email || !subject || !message) {
+            showNotification('Veuillez remplir tous les champs', 'error');
+            return;
+        }
+        
+        // Validation email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showNotification('Veuillez entrer une adresse email valide', 'error');
+            return;
+        }
+        
+        // Animation du bouton
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.innerHTML = '<span>Envoi en cours...</span><i class="fas fa-spinner fa-spin"></i>';
+        submitButton.disabled = true;
+        
+        // Vérifier si EmailJS est chargé
+        if (typeof emailjs === 'undefined') {
+            console.error('EmailJS n\'est pas chargé !');
+            showNotification('Erreur de configuration. Veuillez réessayer.', 'error');
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+            return;
+        }
+        
+        // Paramètres pour EmailJS
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message
+        };
+        
+        // Envoi avec EmailJS - REMPLACEZ LES VALEURS ICI
+        emailjs.send('service_in5jyls', 'template_c5j34ld', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showNotification('✓ Message envoyé avec succès !', 'success');
+                contactForm.reset();
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+            })
+            .catch(function(error) {
+                console.log('FAILED...', error);
+                showNotification('✗ Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+            });
+    });
+}
 
 // ===================================
 // NOTIFICATION SYSTEM
