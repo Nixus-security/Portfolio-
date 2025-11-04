@@ -2,6 +2,18 @@
 // INITIALIZATION
 // ===================================
 
+// Initialiser EmailJS
+// ⚠️ Remplacez 'YOUR_PUBLIC_KEY' par votre véritable clé publique EmailJS.
+// Pour plus de sécurité, envisagez de la stocker dans les variables d'environnement de votre site Netlify
+// et de l'injecter au moment du build.
+const emailJsPublicKey = 'YOUR_PUBLIC_KEY';
+if (emailJsPublicKey === 'YOUR_PUBLIC_KEY') {
+    console.warn('EmailJS is not configured. Please replace "YOUR_PUBLIC_KEY" with your actual public key.');
+} else if (typeof emailjs !== 'undefined') {
+    emailjs.init(emailJsPublicKey);
+}
+
+
 // Initialiser AOS (Animation On Scroll)
 AOS.init({
     duration: 800,
