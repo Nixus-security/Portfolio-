@@ -2,6 +2,13 @@
 // INITIALIZATION
 // ===================================
 
+const emailJsPublicKey = 'BMgIwUa4qbcq-qZau';
+if (emailJsPublicKey === 'BMgIwUa4qbcq-qZau') {
+    console.warn('EmailJS is not configured. Please replace "YOUR_PUBLIC_KEY" with your actual public key.');
+} else if (typeof emailjs !== 'undefined') {
+    emailjs.init(emailJsPublicKey);
+}
+
 // Initialiser AOS (Animation On Scroll)
 AOS.init({
     duration: 800,
