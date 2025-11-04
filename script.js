@@ -3,7 +3,7 @@
 // ===================================
 
 const emailJsPublicKey = 'BMgIwUa4qbcq-qZau';
-if (emailJsPublicKey === 'BMgIwUa4qbcq-qZau') {
+if (emailJsPublicKey === 'YOUR_PUBLIC_KEY') {
     console.warn('EmailJS is not configured. Please replace "YOUR_PUBLIC_KEY" with your actual public key.');
 } else if (typeof emailjs !== 'undefined') {
     emailjs.init(emailJsPublicKey);
