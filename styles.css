@@ -229,33 +229,6 @@ a {
 /* ===================================
    HERO SECTION
    =================================== */
-   /* Hero Image */
-.hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.hero-profile-image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-lg);
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4);
-    border: 3px solid var(--color-primary);
-}
-
-.hero-shape-bg {
-    position: absolute;
-    inset: -20px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    border-radius: var(--radius-lg);
-    opacity: 0.2;
-    z-index: 1;
-    animation: pulse 3s infinite;
-}
 
 .hero {
     min-height: 100vh;
@@ -280,11 +253,23 @@ a {
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 400px 1fr;
     gap: 4rem;
     align-items: center;
     position: relative;
     z-index: 1;
+    margin-bottom: 3rem;
+}
+
+.hero-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-right {
+    display: flex;
+    flex-direction: column;
 }
 
 .hero-greeting {
@@ -325,26 +310,11 @@ a {
     flex-wrap: wrap;
 }
 
-/* ===================================
-   HERO SECTION - VISUAL
-   =================================== */
-
-.hero-visual {
-    position: relative;
-}
-
-.hero-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-
 /* Magic Card pour la photo */
 .magic-card {
     --background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    width: 220px;
-    height: 220px;
+    width: 300px;
+    height: 300px;
     padding: 5px;
     border-radius: 50%;
     overflow: visible;
@@ -406,16 +376,22 @@ a {
     transform: scale(1.1);
 }
 
-/* Code Snippet */
+/* Code snippet en bas */
+.hero-code-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 .hero-shape {
     background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-tertiary));
     border-radius: var(--radius-lg);
-    padding: 2rem;
+    padding: 2.5rem;
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-lg);
     position: relative;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
 }
 
 .hero-shape::before {
@@ -433,12 +409,12 @@ a {
 
 .code-snippet {
     font-family: 'Courier New', monospace;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--color-text-secondary);
 }
 
 .code-line {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
     padding-left: 1rem;
 }
 
