@@ -27,7 +27,7 @@ const social: Social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://linkedin.com/in/anthony-nagul",
+    link: "https://www.linkedin.com/in/anthony-nagul-167767285/",
     essential: true,
   },
   {
@@ -84,6 +84,8 @@ const about: About = {
         des systèmes d'information et la conception d'interfaces web modernes. Ce double parcours
         m'apprend à penser un produit dans son entièreté — le visible comme l'invisible. Je crois
         aux interfaces qui respectent l'utilisateur : rapides, claires, sûres.
+        <br /><br />
+        <em style={{ fontSize: '0.85em', opacity: 0.6 }}>Photo : Angela Anglani</em>
       </>
     ),
   },
