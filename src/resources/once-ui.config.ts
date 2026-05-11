@@ -13,8 +13,7 @@ import {
 } from "@/types";
 import { home } from "./index";
 
-// IMPORTANT: Replace with your own domain address
-const baseURL: string = "https://anthony-nagul.vercel.app";
+const baseURL: string = "https://portfolio-anthony-nagul.netlify.app";
 
 const routes: RoutesConfig = {
   "/": true,
@@ -60,13 +59,12 @@ const code = Geist_Mono({
 });
 
 const fonts: FontsConfig = {
-  heading: heading,
-  body: body,
-  label: label,
-  code: code,
+  heading,
+  body,
+  label,
+  code,
 };
 
-// Thème sombre par défaut, marque cyan/teal
 const style: StyleConfig = {
   theme: "system",
   neutral: "gray",
@@ -94,15 +92,6 @@ const dataStyle: DataStyleConfig = {
   },
 };
 
-const mailchimp: MailchimpConfig = {
-  action: "",
-  effects: {
-    gradient: false,
-    dots: false,
-    lines: false,
-  },
-};
-
 const effects: EffectsConfig = {
   mask: {
     cursor: true,
@@ -112,6 +101,7 @@ const effects: EffectsConfig = {
   },
   gradient: {
     display: true,
+    opacity: 80,
     x: 50,
     y: -50,
     width: 100,
@@ -119,29 +109,71 @@ const effects: EffectsConfig = {
     tilt: 0,
     colorStart: "brand-background-strong",
     colorEnd: "static-transparent",
-    opacity: 80,
   },
   dots: {
     display: true,
-    size: 2,
-    color: "brand-on-background-weak",
     opacity: 20,
-  },
-  lines: {
-    display: false,
-    color: "neutral-alpha-weak",
-    opacity: 100,
-    thickness: 1,
-    angle: 45,
-    size: 8,
+    size: "2",
+    color: "brand-on-background-weak",
   },
   grid: {
     display: false,
-    color: "neutral-alpha-weak",
     opacity: 100,
-    width: 1,
-    columns: 0,
-    rows: 0,
+    color: "neutral-alpha-weak",
+    width: "1",
+    height: "1",
+  },
+  lines: {
+    display: false,
+    opacity: 100,
+    color: "neutral-alpha-weak",
+    size: "8",
+    thickness: 1,
+    angle: 45,
+  },
+};
+
+const mailchimp: MailchimpConfig = {
+  action: "",
+  effects: {
+    mask: {
+      cursor: false,
+      x: 50,
+      y: 0,
+      radius: 100,
+    },
+    gradient: {
+      display: false,
+      opacity: 0,
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0,
+      tilt: 0,
+      colorStart: "accent-background-strong",
+      colorEnd: "static-transparent",
+    },
+    dots: {
+      display: false,
+      opacity: 0,
+      size: "2",
+      color: "brand-on-background-weak",
+    },
+    grid: {
+      display: false,
+      opacity: 0,
+      color: "neutral-alpha-medium",
+      width: "0.25rem",
+      height: "0.25rem",
+    },
+    lines: {
+      display: false,
+      opacity: 0,
+      color: "neutral-alpha-medium",
+      size: "16",
+      thickness: 1,
+      angle: 90,
+    },
   },
 };
 
@@ -149,21 +181,30 @@ const schema: SchemaConfig = {
   logo: "",
   type: "Person",
   name: "Anthony Nagul",
-  description: "Développeur front-end et étudiant en cybersécurité basé à Lyon, France.",
+  description: home.description,
   email: "anthonynag08@gmail.com",
 };
 
-const socialSharing: SocialSharingConfig = {
-  title: "Anthony Nagul — Portfolio",
-  description:
-    "Développeur front-end & étudiant en cybersécurité. Interfaces web conçues avec soin.",
-  ogImage: `${baseURL}/images/og/home.jpg`,
+const sameAs: SameAsConfig = {
+  threads: "",
+  linkedin: "https://linkedin.com/in/anthony-nagul",
+  discord: "",
 };
 
-const sameAs: SameAsConfig = [
-  "https://github.com/Nixus-security",
-  "https://linkedin.com/in/anthony-nagul",
-];
+const socialSharing: SocialSharingConfig = {
+  display: false,
+  platforms: {
+    x: false,
+    linkedin: true,
+    facebook: false,
+    pinterest: false,
+    whatsapp: false,
+    reddit: false,
+    telegram: false,
+    email: true,
+    copyLink: true,
+  },
+};
 
 export {
   baseURL,
