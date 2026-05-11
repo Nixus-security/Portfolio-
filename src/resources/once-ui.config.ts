@@ -34,36 +34,12 @@ const protectedRoutes: ProtectedRoutesConfig = {};
 import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
-const heading = Geist({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  display: "swap",
-});
+const heading = Geist({ variable: "--font-heading", subsets: ["latin"], display: "swap" });
+const body = Geist({ variable: "--font-body", subsets: ["latin"], display: "swap" });
+const label = Geist({ variable: "--font-label", subsets: ["latin"], display: "swap" });
+const code = Geist_Mono({ variable: "--font-code", subsets: ["latin"], display: "swap" });
 
-const body = Geist({
-  variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const label = Geist({
-  variable: "--font-label",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const code = Geist_Mono({
-  variable: "--font-code",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const fonts: FontsConfig = {
-  heading,
-  body,
-  label,
-  code,
-};
+const fonts: FontsConfig = { heading, body, label, code };
 
 const style: StyleConfig = {
   theme: "system",
@@ -82,23 +58,12 @@ const dataStyle: DataStyleConfig = {
   variant: "gradient",
   mode: "categorical",
   height: 24,
-  axis: {
-    stroke: "var(--neutral-alpha-weak)",
-  },
-  tick: {
-    fill: "var(--neutral-on-background-weak)",
-    fontSize: 11,
-    line: false,
-  },
+  axis: { stroke: "var(--neutral-alpha-weak)" },
+  tick: { fill: "var(--neutral-on-background-weak)", fontSize: 11, line: false },
 };
 
 const effects: EffectsConfig = {
-  mask: {
-    cursor: true,
-    x: 50,
-    y: 0,
-    radius: 100,
-  },
+  mask: { cursor: true, x: 50, y: 0, radius: 100 },
   gradient: {
     display: true,
     opacity: 80,
@@ -110,38 +75,15 @@ const effects: EffectsConfig = {
     colorStart: "brand-background-strong",
     colorEnd: "static-transparent",
   },
-  dots: {
-    display: true,
-    opacity: 20,
-    size: "2",
-    color: "brand-on-background-weak",
-  },
-  grid: {
-    display: false,
-    opacity: 100,
-    color: "neutral-alpha-weak",
-    width: "1",
-    height: "1",
-  },
-  lines: {
-    display: false,
-    opacity: 100,
-    color: "neutral-alpha-weak",
-    size: "8",
-    thickness: 1,
-    angle: 45,
-  },
+  dots: { display: true, opacity: 20, size: "2", color: "brand-on-background-weak" },
+  grid: { display: false, opacity: 100, color: "neutral-alpha-weak", width: "0.25rem", height: "0.25rem" },
+  lines: { display: false, opacity: 100, color: "neutral-alpha-weak", size: "16", thickness: 1, angle: 45 },
 };
 
 const mailchimp: MailchimpConfig = {
   action: "",
   effects: {
-    mask: {
-      cursor: false,
-      x: 50,
-      y: 0,
-      radius: 100,
-    },
+    mask: { cursor: false, x: 50, y: 0, radius: 100 },
     gradient: {
       display: false,
       opacity: 0,
@@ -153,27 +95,9 @@ const mailchimp: MailchimpConfig = {
       colorStart: "accent-background-strong",
       colorEnd: "static-transparent",
     },
-    dots: {
-      display: false,
-      opacity: 0,
-      size: "2",
-      color: "brand-on-background-weak",
-    },
-    grid: {
-      display: false,
-      opacity: 0,
-      color: "neutral-alpha-medium",
-      width: "0.25rem",
-      height: "0.25rem",
-    },
-    lines: {
-      display: false,
-      opacity: 0,
-      color: "neutral-alpha-medium",
-      size: "16",
-      thickness: 1,
-      angle: 90,
-    },
+    dots: { display: false, opacity: 0, size: "2", color: "brand-on-background-weak" },
+    grid: { display: false, opacity: 0, color: "neutral-alpha-medium", width: "0.25rem", height: "0.25rem" },
+    lines: { display: false, opacity: 0, color: "neutral-alpha-medium", size: "16", thickness: 1, angle: 90 },
   },
 };
 
