@@ -1,0 +1,144 @@
+/* ================================================
+   LARGE SCREENS — TIGHTEN CONTAINER
+================================================ */
+@media (max-width: 1180px) {
+  .section-inner {
+    padding: 0 1.5rem;
+  }
+}
+
+/* ================================================
+   TABLET — 1024px
+================================================ */
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 6rem 0;
+  }
+
+  .now-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .shop-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================
+   MOBILE NAV — 860px
+================================================ */
+@media (max-width: 860px) {
+  .nav-burger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    background: rgba(5, 7, 13, 0.97);
+    backdrop-filter: blur(16px);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform var(--transition), opacity var(--transition);
+    pointer-events: none;
+  }
+
+  .nav-links.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    font-size: 1.4rem;
+    font-family: var(--font-display);
+  }
+
+  .nav-burger.is-open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+
+  .nav-burger.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-burger.is-open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+}
+
+/* ================================================
+   SMALL TABLET / LARGE PHONE — 768px
+================================================ */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 5rem 0;
+  }
+
+  .about-grid,
+  .projects-grid,
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-grid .shop-card-featured {
+    grid-column: auto;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 14vw, 5rem);
+  }
+
+  .scroll-cue {
+    display: none;
+  }
+}
+
+/* ================================================
+   PHONE — 480px
+================================================ */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 0.75rem 0;
+  }
+
+  .navbar-inner {
+    padding: 0.5rem 1rem;
+  }
+
+  .section-inner {
+    padding: 0 1.25rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .about-card,
+  .project-card,
+  .shop-card,
+  .rule-card {
+    padding: 1.75rem;
+  }
+
+  .shop-pitch {
+    font-size: 1.05rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

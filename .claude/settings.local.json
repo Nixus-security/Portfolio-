@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api *)",
+      "WebFetch(domain:github.com)",
+      "Bash(find \"\\\\\\\\wsl.localhost\\\\ubuntu\\\\home\\\\antho\\\\Portfolio-new\" -type f -o -type d)",
+      "Read(///wsl.localhost/ubuntu/home/**)",
+      "Read(//c/Users/antho/**)",
+      "Bash(ls -la /home/antho/Documents/ | head -20)",
+      "Bash(git config *)",
+      "Bash(npx shadcn@latest mcp init --client claude)",
+      "Bash(ls /mnt/c/Users/antho/ 2>&1 | head -5 && echo \"---\" && ls /mnt/wsl/ 2>&1 | head -5)",
+      "PowerShell(wsl -d Ubuntu -e bash -c \"cd /home/antho/Portfolio-new && npx shadcn@latest mcp init --client claude\" 2>&1)",
+      "PowerShell(wsl -d Ubuntu -e bash -c \"export NVM_DIR='/home/antho/.nvm' && source '$NVM_DIR/nvm.sh' && cd /home/antho/Portfolio-new && npx shadcn@latest mcp init --client claude 2>&1\")",
+      "WebFetch(domain:www.reactbits.dev)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(npm install *)",
+      "Bash(wslpath \"\\\\\\\\\\\\\\\\wsl.localhost\\\\\\\\ubuntu\\\\\\\\home\\\\\\\\antho\\\\\\\\Portfolio-new\")",
+      "Bash(ls \"//wsl.localhost/ubuntu/home/antho/Portfolio-new/\" 2>&1 | head -20)",
+      "Bash(cd \"//wsl.localhost/ubuntu/home/antho/Portfolio-new\" && npm install 2>&1 | tail -20)",
+      "Read(///wsl.localhost/ubuntu/home/antho/**)",
+      "Bash(npm run *)",
+      "Bash(wsl -d ubuntu -e bash -c \"cd /home/antho/Portfolio-new && npm install 2>&1 | tail -20\")"
+    ]
+  }
+}
