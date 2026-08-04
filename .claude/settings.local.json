@@ -21,7 +21,27 @@
       "Bash(cd \"//wsl.localhost/ubuntu/home/antho/Portfolio-new\" && npm install 2>&1 | tail -20)",
       "Read(///wsl.localhost/ubuntu/home/antho/**)",
       "Bash(npm run *)",
-      "Bash(wsl -d ubuntu -e bash -c \"cd /home/antho/Portfolio-new && npm install 2>&1 | tail -20\")"
+      "Bash(wsl -d ubuntu -e bash -c \"cd /home/antho/Portfolio-new && npm install 2>&1 | tail -20\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(pkill -f \"next-server\")",
+      "Bash(disown)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(npx --version)",
+      "Bash(npx playwright *)",
+      "Bash(find / -maxdepth 6 -iname \"*chromium*\" -type d 2>/dev/null | grep -i playwright | head -10; ls ~/.cache/ms-playwright 2>/dev/null)",
+      "Bash(timeout 90 npx playwright install chromium --with-deps)",
+      "Bash(timeout 100 npx playwright install chromium)",
+      "Bash(nohup npx playwright install chromium)",
+      "Bash(echo \"started pid $!\")",
+      "Bash(npx tsc *)",
+      "Bash(lsof -ti:3000 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)",
+      "Bash(curl -sf http://localhost:3000)",
+      "Bash(kill -9 12102 12103 12133 27222 27223 27253)",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs -r kill -9)",
+      "Bash(nohup npm run dev)",
+      "Bash(which chromium *)"
     ]
   }
 }
