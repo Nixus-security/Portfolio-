@@ -41,7 +41,8 @@
       "Bash(lsof -ti:3000)",
       "Bash(xargs -r kill -9)",
       "Bash(nohup npm run dev)",
-      "Bash(which chromium *)"
+      "Bash(which chromium *)",
+      "Bash(curl -s https://api.github.com/repos/juliusbrussee/caveman)"
     ]
   }
 }
